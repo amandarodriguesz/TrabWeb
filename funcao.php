@@ -136,4 +136,23 @@
      mysqli_close($conexao);
      return $linha["cont"];
    }
+
+   function obterRelatorio($id_jogador){
+    
+    $conexao = obterConexao();
+    $resultado = mysqli_query($conexao,
+            "SELECT res.jogador_id, ques.pergunta, res.resposta, ques.resposta as certa
+            from resposta res inner join questao ques on res.questao_id = ques.id 
+            where res.jogador_id = ?");
+    $questoes = array();
+    if ($resultado) {
+      $questoes = mysqli_fetch_all($resultado,
+          MYSQLI_ASSOC);
+    }
+    //mysqli_free_result($resultado);
+    mysqli_close($conexao);
+    return $questoes;
+
+
+   }
  ?>

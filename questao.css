@@ -29,6 +29,10 @@ h1{
 }
 
 header, footer {
-  background-color: black;
+  background-color: cyan;
   color: white;
+}
+
+a{
+  text-decoration: none;
 }

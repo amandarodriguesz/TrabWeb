@@ -11,10 +11,10 @@
   $quantidadeQuestoes = obterQuantidadeQuestoes();
   $quantidadeRespostas = obterQuantidadeRespostas($jogador["id"]);
   $quantidadeRespostas++;
-  // if (!$questao) {
-  //   echo "quiz encerrado";
-  //   exit(0);
-  // }
+  //if (!$questao) {
+  //echo "quiz encerrado";
+  //exit(0);
+  //}
  ?>
 
 <!DOCTYPE html>
@@ -23,13 +23,17 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="questao.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   </head>
   <body>
     <header>
         <h1>Quiz</h1>
         <p>Usuário: <?php echo $_SESSION["email"]; ?></p>
-        <p><a href="logout.php">Logout</a></p>
-        <p><a href="resetar.php">Resetar Jogo</a></p>
+        <button type="button" class="btn btn-warning"><a href="resetar.php">Resetar Jogo</a></button>
+        <button type="button" class="btn btn-info"><a href="relatorio.php">Relatório</a></button>
+        <button type="button" class="btn btn-danger"><a href="logout.php">Logout</a></button> 
+
         <?php
               echo "<p style='text-align:right'> ($quantidadeRespostas / $quantidadeQuestoes) </p>"
          ?>
